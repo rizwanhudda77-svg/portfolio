@@ -12,63 +12,110 @@
 
 <body>
 
-  <!-- =======================
-       Glass Navigation
-  ======================== -->
+<!-- =========================
+   Navigation (Day 2)
+========================= -->
 
-  <header class="site-header">
-    <nav class="nav">
+<header class="site-header">
+  <nav class="nav">
 
-      <a href="#" class="nav__logo">Rizwan</a>
+    <a href="#" class="nav__logo">Rizwan</a>
 
-      <button class="nav__toggle"
-              aria-label="Toggle Menu"
-              aria-expanded="false">
-        <span class="nav__hamburger"></span>
-      </button>
+    <button class="nav__toggle"
+            aria-label="Toggle Menu"
+            aria-expanded="false">
+      <span class="nav__hamburger"></span>
+    </button>
 
-      <ul class="nav__menu">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <ul class="nav__menu">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-    </nav>
-  </header>
+  </nav>
+</header>
 
+<!-- =========================
+   Hero (Day 1)
+========================= -->
 
-  <!-- =======================
-       Hero Section
-  ======================== -->
+<header class="hero">
+  <div class="hero__container">
 
-  <header class="hero">
-    <div class="hero__container">
+    <h1 class="hero__title">
+      Building Scalable Interfaces &
+      Seamless Experiences
+    </h1>
 
-      <h1 class="hero__title">
-        Building Scalable Interfaces &
-        Seamless Experiences
-      </h1>
+    <p class="hero__bio">
+      Front-End Engineer specializing in performance,
+      accessibility and modern design systems.
+    </p>
 
-      <p class="hero__bio">
-        Front-End Engineer specializing in performance,
-        accessibility, and modern design systems.
+    <a href="#work" class="hero__cta">
+      View Work
+    </a>
+
+    <div class="scroll-indicator"></div>
+
+  </div>
+</header>
+
+<!-- =========================
+   About / Bento Grid (Day 3)
+========================= -->
+
+<section id="about" class="about">
+
+  <div class="about__grid">
+
+    <!-- 2x2 Anchor -->
+    <article class="tile tile--bio">
+      <h3>About Me</h3>
+      <p>
+        I build scalable, accessible and high-performance
+        web systems using clean architecture and modern CSS logic.
+        My focus is on visual hierarchy and design systems.
       </p>
+    </article>
 
-      <a href="#work" class="hero__cta">
-        View Work
-      </a>
+    <!-- Wide Stack -->
+    <article class="tile tile--stack">
+      <h3>Core Tech Stack</h3>
+      <ul class="tech-list">
+        <li>HTML5</li>
+        <li>CSS Grid / Flexbox</li>
+        <li>JavaScript (ES6+)</li>
+      </ul>
+    </article>
 
-      <div class="scroll-indicator"></div>
+    <!-- Small Tiles -->
+    <article class="tile tile--small">
+      <h3>Frameworks</h3>
+      <p>React.js / Vue.js</p>
+    </article>
 
-    </div>
-  </header>
+    <article class="tile tile--small">
+      <h3>Tools</h3>
+      <p>Git / Webpack</p>
+    </article>
 
+    <article class="tile tile--small">
+      <h3>Design</h3>
+      <p>Figma / Responsive UI</p>
+    </article>
 
-  <!-- =======================
-       JS
-  ======================== -->
+    <article class="tile tile--small">
+      <h3>Accessibility</h3>
+      <p>WCAG Standards</p>
+    </article>
 
-  <script src="scripts/main.js"></script>
+  </div>
+
+</section>
+
+<script src="scripts/main.js"></script>
 
 </body>
 </html>
