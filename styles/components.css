@@ -1,57 +1,15 @@
-.hero {
-  min-height: 90dvh;
-  display: grid;
-  place-items: center;
-  padding: var(--space-lg) var(--space-md);
-  text-align: center;
-}
+/* =========================
+   Navigation (Glassmorphism)
+========================= */
 
-.hero__container {
-  max-width: 75rem;
-}
-
-.hero__title {
-  font-size: var(--fs-hero);
-  line-height: 1.1;
-  text-wrap: balance;
-  margin-bottom: var(--space-md);
-}
-
-.hero__bio {
-  font-size: var(--fs-lead);
-  color: var(--text-secondary);
-  max-width: var(--text-measure);
-  margin-inline: auto;
-  margin-bottom: var(--space-lg);
-}
-
-.hero__cta {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-md);
-  background: var(--brand-accent);
-  color: white;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: transform 200ms ease;
-}
-
-.hero__cta:hover {
-  transform: translateY(-0.25rem);
-}
-
-/* Scroll Indicator */
-
-.scroll-indicator {
-  margin-top: var(--space-xl);
-  width: 1.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--text-sec
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(12px);
+
   background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+
   border-bottom: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.3);
 }
@@ -62,6 +20,17 @@
   align-items: center;
   padding: var(--space-sm) var(--space-md);
 }
+
+.nav__logo {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+/* =========================
+   Hamburger
+========================= */
+
 .nav__toggle {
   background: none;
   border: none;
@@ -89,6 +58,9 @@
   position: absolute;
   top: 0.4rem;
 }
+
+/* Morph animation */
+
 .nav.is-open .nav__hamburger {
   background: transparent;
 }
@@ -102,19 +74,40 @@
   transform: rotate(-45deg);
   top: 0;
 }
+
+/* =========================
+   Mobile Menu
+========================= */
+
 .nav__menu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: var(--space-md);
   position: absolute;
   top: 100%;
   right: 0;
   background: rgba(15, 23, 42, 0.95);
-  list-style: none;
-  padding: var(--space-md);
-  display: none;
+  backdrop-filter: blur(12px);
+}
+
+.nav__menu li {
+  margin-bottom: var(--space-sm);
+}
+
+.nav__menu a {
+  text-decoration: none;
+  color: var(--text-primary);
 }
 
 .nav.is-open .nav__menu {
   display: block;
 }
+
+/* =========================
+   Desktop Enhancement
+========================= */
+
 @media (min-width: 48rem) {
 
   .nav__toggle {
@@ -126,5 +119,83 @@
     gap: var(--space-md);
     position: static;
     background: none;
+    padding: 0;
   }
+
+  .nav__menu li {
+    margin: 0;
+  }
+}
+
+/* =========================
+   Hero Section
+========================= */
+
+.hero {
+  min-height: 90dvh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  position: relative;
+}
+
+.hero__container {
+  max-width: 75rem;
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-bottom: var(--space-md);
+}
+
+.hero__bio {
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  max-width: var(--text-measure);
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--brand-accent);
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: transform 200ms ease;
+}
+
+.hero__cta:hover {
+  transform: translateY(-0.25rem);
+}
+
+/* Scroll Indicator */
+
+.scroll-indicator {
+  margin-top: var(--space-xl);
+  width: 1.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--text-secondary);
+  border-radius: 2rem;
+  display: grid;
+  place-items: start center;
+  padding-top: 0.4rem;
+}
+
+.scroll-indicator::after {
+  content: "";
+  width: 0.3rem;
+  height: 0.3rem;
+  background: var(--brand-accent);
+  border-radius: 50%;
+  animation: scroll 1.5s infinite ease-in-out;
+}
+
+@keyframes scroll {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(0.8rem); opacity: 0; }
 }
