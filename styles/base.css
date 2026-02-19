@@ -4,10 +4,30 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-surface);
   color: var(--text-primary);
   line-height: 1.6;
+}
+
+/* Prevent horizontal scroll bugs */
+body {
+  overflow-x: hidden;
+}
+
+/* Links reset */
+a {
+  color: inherit;
+}
+
+/* Images responsive */
+img {
+  max-width: 100%;
+  display: block;
 }
