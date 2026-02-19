@@ -287,3 +287,103 @@
   transform: translateY(-0.2rem);
   box-shadow: 0 0 1.5rem rgba(59,130,246,0.6);
 }
+/* =========================
+   EXPERIENCE SECTION (DAY 5)
+========================= */
+
+.experience {
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.experience__title {
+  font-size: var(--fs-section);
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+
+/* Timeline Structure */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Vertical Line */
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 0.15rem;
+  background: rgba(255,255,255,0.1);
+}
+
+/* Item */
+
+.timeline__item {
+  position: relative;
+  padding-left: 3.5rem;
+  margin-bottom: var(--space-2xl);
+}
+
+/* Marker */
+
+.timeline__marker {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.4rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  box-shadow: 0 0 1rem rgba(59,130,246,0.6);
+}
+
+/* Content */
+
+.timeline__content {
+  max-width: 65ch;
+}
+
+/* Level 1 – Role */
+
+.timeline__role {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+/* Level 2 – Company */
+
+.timeline__company span {
+  color: var(--brand-accent);
+  font-weight: 500;
+}
+
+/* Level 3 – Dates */
+
+.timeline__meta {
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  margin-bottom: var(--space-md);
+}
+
+/* Bullet Points */
+
+.timeline__points {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.timeline__points li {
+  line-height: 1.6;
+}
