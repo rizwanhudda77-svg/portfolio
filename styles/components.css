@@ -1,0 +1,48 @@
+.hero {
+  min-height: 90dvh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+}
+
+.hero__container {
+  max-width: 75rem;
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-bottom: var(--space-md);
+}
+
+.hero__bio {
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  max-width: var(--text-measure);
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--brand-accent);
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: transform 200ms ease;
+}
+
+.hero__cta:hover {
+  transform: translateY(-0.25rem);
+}
+
+/* Scroll Indicator */
+
+.scroll-indicator {
+  margin-top: var(--space-xl);
+  width: 1.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--text-sec
