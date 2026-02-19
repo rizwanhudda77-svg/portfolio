@@ -387,3 +387,9 @@
 .timeline__points li {
   line-height: 1.6;
 }
+/* Hide hamburger on desktop */
+@media (min-width: 48rem) {
+  .nav__toggle {
+    display: none !important;
+  }
+}
