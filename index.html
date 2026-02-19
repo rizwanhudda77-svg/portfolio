@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rizwan Hudda | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="styles/tokens.css">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/components.css">
+
+<title>Rizwan Hudda | Portfolio</title>
 </head>
-
 <body>
-
-<!-- =========================
-   Navigation (Day 2)
-========================= -->
 
 <header class="site-header">
   <nav class="nav">
@@ -36,11 +32,10 @@
   </nav>
 </header>
 
-<!-- =========================
-   Hero (Day 1)
-========================= -->
 
-<header class="hero">
+<!-- HERO -->
+
+<section class="hero">
   <div class="hero__container">
 
     <h1 class="hero__title">
@@ -60,27 +55,23 @@
     <div class="scroll-indicator"></div>
 
   </div>
-</header>
+</section>
 
-<!-- =========================
-   About / Bento Grid (Day 3)
-========================= -->
+
+<!-- ABOUT (DAY 3) -->
 
 <section id="about" class="about">
-
   <div class="about__grid">
 
-    <!-- 2x2 Anchor -->
     <article class="tile tile--bio">
       <h3>About Me</h3>
       <p>
-        I build scalable, accessible and high-performance
-        web systems using clean architecture and modern CSS logic.
+        I build scalable, accessible and high-performance web systems
+        using clean architecture and modern CSS logic.
         My focus is on visual hierarchy and design systems.
       </p>
     </article>
 
-    <!-- Wide Stack -->
     <article class="tile tile--stack">
       <h3>Core Tech Stack</h3>
       <ul class="tech-list">
@@ -90,32 +81,111 @@
       </ul>
     </article>
 
-    <!-- Small Tiles -->
-    <article class="tile tile--small">
+    <article class="tile">
       <h3>Frameworks</h3>
       <p>React.js / Vue.js</p>
     </article>
 
-    <article class="tile tile--small">
+    <article class="tile">
       <h3>Tools</h3>
       <p>Git / Webpack</p>
     </article>
 
-    <article class="tile tile--small">
+    <article class="tile">
       <h3>Design</h3>
       <p>Figma / Responsive UI</p>
     </article>
 
-    <article class="tile tile--small">
+    <article class="tile">
       <h3>Accessibility</h3>
       <p>WCAG Standards</p>
     </article>
 
   </div>
-
 </section>
 
-<script src="scripts/main.js"></script>
+
+<!-- PROJECTS (DAY 4 PREMIUM) -->
+
+<section id="work" class="projects">
+
+  <div class="projects__header">
+    <h2>Featured Projects & Case Studies</h2>
+    <p>Redesigned and optimized high-traffic online platforms for performance and scalability.</p>
+  </div>
+
+  <div class="projects__grid">
+
+    <!-- Main Cards -->
+
+    <article class="project-card">
+      <figure class="project-card__media">
+        <img src="assets/images/project1.jpg"
+             alt="E-Commerce Platform"
+             loading="lazy">
+      </figure>
+
+      <div class="project-card__content">
+        <h3>E-Commerce Platform Refactor</h3>
+        <p>Optimized checkout architecture and reduced load time by 40%.</p>
+
+        <div class="project-card__tags">
+          <span>React</span>
+          <span>Node</span>
+          <span>Stripe</span>
+        </div>
+
+        <a href="#" class="project-card__button">View Project</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <figure class="project-card__media">
+        <img src="assets/images/project2.jpg"
+             alt="SaaS Dashboard UI"
+             loading="lazy">
+      </figure>
+
+      <div class="project-card__content">
+        <h3>SaaS Dashboard UI</h3>
+        <p>Modular dashboard system with reusable scalable components.</p>
+
+        <div class="project-card__tags">
+          <span>Vue</span>
+          <span>CSS Grid</span>
+          <span>API</span>
+        </div>
+
+        <a href="#" class="project-card__button">Live Demo</a>
+      </div>
+    </article>
+
+    <!-- Sidebar Featured Card -->
+
+    <article class="project-card project-card--featured">
+      <figure class="project-card__media">
+        <img src="assets/images/project3.jpg"
+             alt="Minimal UI System"
+             loading="lazy">
+      </figure>
+
+      <div class="project-card__content">
+        <h3>Minimal UI System</h3>
+        <p>Design system focused on accessibility and performance-driven components.</p>
+
+        <div class="project-card__tags">
+          <span>Figma</span>
+          <span>WCAG</span>
+          <span>System</span>
+        </div>
+
+        <a href="#" class="project-card__button">View Project</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 
 </body>
 </html>
