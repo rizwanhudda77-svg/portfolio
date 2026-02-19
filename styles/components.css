@@ -1,5 +1,5 @@
 /* =========================
-   Glass Navigation
+   Premium Glass Navigation
 ========================= */
 
 .site-header {
@@ -12,13 +12,18 @@
 
   padding: var(--space-sm);
 
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
 
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(16px);
 }
 
 .nav {
+  position: relative;
+
   width: 100%;
   max-width: 70rem;
 
@@ -29,18 +34,35 @@
   padding: var(--space-sm) var(--space-md);
 
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
 
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 0.9rem;
 
-  box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
+  box-shadow:
+    0 0.75rem 2rem rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+/* subtle inner highlight */
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 .nav__logo {
   font-weight: 600;
   text-decoration: none;
   color: var(--text-primary);
+  transition: color 200ms ease;
+}
+
+.nav__logo:hover {
+  color: var(--brand-accent);
 }
 
 /* =========================
@@ -58,8 +80,8 @@
 .nav__hamburger::after {
   content: "";
   display: block;
-  width: 1.5rem;
-  height: 0.125rem;
+  width: 1.6rem;
+  height: 0.13rem;
   background: var(--text-primary);
   position: relative;
   transition: all 300ms ease;
@@ -67,12 +89,12 @@
 
 .nav__hamburger::before {
   position: absolute;
-  top: -0.4rem;
+  top: -0.45rem;
 }
 
 .nav__hamburger::after {
   position: absolute;
-  top: 0.4rem;
+  top: 0.45rem;
 }
 
 /* Morph animation */
@@ -96,22 +118,27 @@
 ========================= */
 
 .nav__menu {
-  display: none;
   list-style: none;
   margin: 0;
   padding: var(--space-md);
 
   position: absolute;
-  top: 100%;
+  top: 110%;
   right: var(--space-md);
 
-  background: rgba(15, 23, 42, 0.9);
-  backdrop-filter: blur(14px);
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
 
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 0.75rem;
+  border-radius: 0.9rem;
 
-  box-shadow: 0 1rem 2rem rgba(0,0,0,0.4);
+  box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.5);
+
+  opacity: 0;
+  transform: translateY(-1rem);
+  pointer-events: none;
+
+  transition: all 300ms ease;
 }
 
 .nav__menu li {
@@ -127,24 +154,32 @@
   color: var(--text-primary);
   position: relative;
   padding-bottom: 0.25rem;
+  transition: color 200ms ease;
 }
 
-/* Active / Hover underline glow */
+.nav__menu a:hover {
+  color: var(--brand-accent);
+}
 
 .nav__menu a:hover::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0.125rem;
+  left: 50%;
+  bottom: -0.25rem;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 0.15rem;
   background: var(--brand-accent);
+  border-radius: 1rem;
+  box-shadow: 0 0 0.8rem var(--brand-accent);
 }
 
-/* Show menu when open */
+/* Show when open */
 
 .nav.is-open .nav__menu {
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* =========================
@@ -160,11 +195,16 @@
   .nav__menu {
     display: flex;
     gap: var(--space-md);
+
     position: static;
     background: none;
     border: none;
     box-shadow: none;
     padding: 0;
+
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 
   .nav__menu li {
@@ -211,11 +251,12 @@
   color: white;
   border-radius: 0.5rem;
   text-decoration: none;
-  transition: transform 200ms ease;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
 .hero__cta:hover {
   transform: translateY(-0.25rem);
+  box-shadow: 0 0 1rem rgba(59,130,246,0.6);
 }
 
 /* =========================
