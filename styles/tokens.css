@@ -1,25 +1,50 @@
 :root {
 
-  /* Brand */
-  --brand-accent: #3b82f6;
+/* =========================
+   COLOR SYSTEM (Semantic)
+========================= */
 
-  /* Text */
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
+--bg-surface: #0b1220;
+--bg-elevated: #111a2e;
 
-  /* Background */
-  --bg-surface: #0f172a;
+--text-primary: #f1f5f9;
+--text-secondary: #94a3b8;
 
-  /* Radius */
-  --radius-sm: 0.75rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.25rem;
+--brand-accent: #3b82f6;
+--brand-accent-strong: #2563eb;
 
-  /* Spacing */
-  --space-sm: 0.75rem;
-  --space-md: 1.25rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 4rem;
+/* =========================
+   FLUID TYPOGRAPHY
+========================= */
+
+--fs-hero: clamp(2.4rem, 5vw, 4.5rem);
+--fs-lead: clamp(1rem, 1.2vw, 1.25rem);
+--fs-section: clamp(1.6rem, 2vw, 2.2rem);
+
+/* =========================
+   SPACING SYSTEM
+========================= */
+
+--space-xs: 0.5rem;
+--space-sm: 0.75rem;
+--space-md: 1.25rem;
+--space-lg: 2rem;
+--space-xl: 3rem;
+--space-2xl: 5rem;
+
+/* =========================
+   RADIUS
+========================= */
+
+--radius-sm: 0.5rem;
+--radius-md: 0.75rem;
+--radius-lg: 1rem;
+--radius-xl: 1.5rem;
+
+/* =========================
+   CONTENT MEASURE
+========================= */
+
+--text-measure: 60ch;
 
 }
