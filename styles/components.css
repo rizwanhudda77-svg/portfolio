@@ -1,51 +1,121 @@
-/* =========================
-   Premium Glass Navigation (Day 2)
-========================= */
+/* =====================================================
+   ADVANCED CINEMATIC BACKGROUND
+===================================================== */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Left blue glow */
+body::before {
+  content: "";
+  position: fixed;
+  top: -15rem;
+  left: -15rem;
+  width: 40rem;
+  height: 40rem;
+  background: radial-gradient(
+    circle,
+    rgba(59,130,246,0.35),
+    transparent 70%
+  );
+  filter: blur(120px);
+  z-index: -1;
+}
+
+/* Right purple glow */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -15rem;
+  right: -15rem;
+  width: 40rem;
+  height: 40rem;
+  background: radial-gradient(
+    circle,
+    rgba(139,92,246,0.35),
+    transparent 70%
+  );
+  filter: blur(120px);
+  z-index: -1;
+}
+
+
+/* =====================================================
+   PREMIUM GLASS NAVIGATION
+===================================================== */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
+
   display: flex;
   justify-content: center;
+
   padding: var(--space-sm);
 
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.02)
-  );
-
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 }
 
 .nav {
   position: relative;
+
   width: 100%;
-  max-width: 70rem;
+  max-width: 72rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
 
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 
   border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 0.9rem;
+  border-radius: 1rem;
 
   box-shadow:
-    0 0.75rem 2rem rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.15);
+    0 1rem 2.5rem rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+
+  transition: transform 300ms ease;
 }
 
-.nav__logo {
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--text-primary);
+.site-header:hover .nav {
+  transform: translateY(-0.2rem);
 }
+
+/* Logo */
+
+.nav__logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    var(--brand-accent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: opacity 200ms ease;
+}
+
+.nav__logo:hover {
+  opacity: 0.8;
+}
+
+
+/* =========================
+   HAMBURGER
+========================= */
 
 .nav__toggle {
   background: none;
@@ -65,12 +135,34 @@
   transition: all 300ms ease;
 }
 
-.nav__hamburger::before { position: absolute; top: -0.45rem; }
-.nav__hamburger::after  { position: absolute; top: 0.45rem; }
+.nav__hamburger::before {
+  position: absolute;
+  top: -0.45rem;
+}
 
-.nav.is-open .nav__hamburger { background: transparent; }
-.nav.is-open .nav__hamburger::before { transform: rotate(45deg); top: 0; }
-.nav.is-open .nav__hamburger::after  { transform: rotate(-45deg); top: 0; }
+.nav__hamburger::after {
+  position: absolute;
+  top: 0.45rem;
+}
+
+.nav.is-open .nav__hamburger {
+  background: transparent;
+}
+
+.nav.is-open .nav__hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav.is-open .nav__hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+
+/* =========================
+   MENU LINKS
+========================= */
 
 .nav__menu {
   list-style: none;
@@ -78,16 +170,16 @@
   padding: var(--space-md);
 
   position: absolute;
-  top: 110%;
+  top: 115%;
   right: var(--space-md);
 
   background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 0.9rem;
+  border-radius: 1rem;
 
-  box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.5);
+  box-shadow: 0 2rem 3rem rgba(0,0,0,0.6);
 
   opacity: 0;
   transform: translateY(-1rem);
@@ -102,15 +194,56 @@
   pointer-events: auto;
 }
 
-.nav__menu li { margin-bottom: var(--space-sm); }
-.nav__menu li:last-child { margin-bottom: 0; }
+.nav__menu li {
+  margin-bottom: var(--space-sm);
+}
+
+.nav__menu li:last-child {
+  margin-bottom: 0;
+}
+
+.nav__menu a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 250ms ease;
+}
+
+.nav__menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.3rem;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 0.12rem;
+  background: var(--brand-accent);
+  border-radius: 2rem;
+  transition: transform 300ms ease;
+}
+
+.nav__menu a:hover {
+  color: var(--brand-accent);
+}
+
+.nav__menu a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Desktop */
 
 @media (min-width: 48rem) {
-  .nav__toggle { display: none; }
+
+  .nav__toggle {
+    display: none;
+  }
 
   .nav__menu {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-lg);
     position: static;
     background: none;
     border: none;
@@ -121,18 +254,21 @@
     pointer-events: auto;
   }
 
-  .nav__menu li { margin: 0; }
+  .nav__menu li {
+    margin: 0;
+  }
 }
 
-/* =========================
-   Hero Section (Day 1)
-========================= */
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
 
 .hero {
   min-height: 90dvh;
   display: grid;
   place-items: center;
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-xl) var(--space-md);
   text-align: center;
 }
 
@@ -157,25 +293,27 @@
 
 .hero__cta {
   display: inline-block;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
   background: var(--brand-accent);
   color: white;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   text-decoration: none;
+  box-shadow: 0 0 1.2rem rgba(59,130,246,0.6);
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
 .hero__cta:hover {
-  transform: translateY(-0.25rem);
-  box-shadow: 0 0 1rem rgba(59,130,246,0.6);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0 2rem rgba(59,130,246,0.8);
 }
 
-/* =========================
-   About Bento Grid (Day 3)
-========================= */
+
+/* =====================================================
+   BENTO GRID (DAY 3)
+===================================================== */
 
 .about {
-  padding: var(--space-xl) var(--space-md);
+  padding: var(--space-2xl) var(--space-md);
 }
 
 .about__grid {
@@ -183,27 +321,37 @@
   gap: var(--space-lg);
 }
 
-/* Base Tile */
-
 .tile {
-  background: rgba(255,255,255,0.05);
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.03)
+  );
+
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 0.9rem;
-  padding: var(--space-lg);
+  border-radius: 1rem;
+  padding: var(--space-xl);
+
+  backdrop-filter: blur(12px);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  transition: transform 250ms ease,
-              border-color 250ms ease,
-              box-shadow 250ms ease;
+  box-shadow: 0 1.5rem 2.5rem rgba(0,0,0,0.45);
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
 }
 
 .tile:hover {
-  transform: translateY(-0.4rem);
+  transform: translateY(-0.6rem);
   border-color: var(--brand-accent);
-  box-shadow: 0 1rem 2rem rgba(0,0,0,0.4);
+  box-shadow:
+    0 2rem 3rem rgba(0,0,0,0.6),
+    0 0 2rem rgba(59,130,246,0.35);
 }
 
 .tile h3 {
@@ -219,7 +367,7 @@
   gap: var(--space-sm);
 }
 
-/* Mobile */
+/* Responsive */
 
 @media (max-width: 47.99rem) {
   .about__grid {
@@ -227,20 +375,22 @@
   }
 }
 
-/* Tablet */
-
 @media (min-width: 48rem) and (max-width: 63.99rem) {
   .about__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .tile--bio { grid-column: span 2; }
-  .tile--stack { grid-column: span 2; }
+  .tile--bio {
+    grid-column: span 2;
+  }
+
+  .tile--stack {
+    grid-column: span 2;
+  }
 }
 
-/* Desktop */
-
 @media (min-width: 64rem) {
+
   .about__grid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -255,9 +405,10 @@
   }
 }
 
-/* =========================
-   Accessibility Focus
-========================= */
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
 
 :focus-visible {
   outline: 2px solid var(--brand-accent);
