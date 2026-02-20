@@ -273,7 +273,67 @@
   </ol>
 
 </section>
+<section id="contact" class="contact">
 
+  <h2 class="contact__title">Let’s Work Together</h2>
+
+  <form class="contact__form" novalidate>
+
+    <!-- Name -->
+    <div class="form-group">
+      <input type="text" id="name" required placeholder=" ">
+      <label for="name">Full Name</label>
+      <span class="form-error">Please enter your name</span>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <input type="email" id="email" required placeholder=" ">
+      <label for="email">Email Address</label>
+      <span class="form-error">Enter a valid email address</span>
+    </div>
+
+    <!-- Message -->
+    <div class="form-group">
+      <textarea id="message" rows="4" required placeholder=" "></textarea>
+      <label for="message">Your Message</label>
+      <span class="form-error">Message cannot be empty</span>
+    </div>
+
+    <button type="submit" class="contact__submit">
+      Send Message
+    </button>
+
+  </form>
+
+</section>
+
+  <footer class="footer">
+
+  <div class="footer__grid">
+
+    <div class="footer__brand">
+      <h3>Rizwan Hudda</h3>
+      <p>Building scalable, accessible and performance-first interfaces.</p>
+    </div>
+
+    <div class="footer__links">
+      <h4>Navigate</h4>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+    </div>
+
+    <div class="footer__social">
+      <h4>Connect</h4>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Twitter</a>
+    </div>
+
+  </div>
+
+</footer>
 <script src="scripts/main.js"></script>
 </body>
 </html>
