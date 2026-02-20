@@ -6,12 +6,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-
   display: flex;
   justify-content: center;
-
   padding: var(--space-sm);
-
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(16px);
 }
@@ -19,24 +16,18 @@
 .nav {
   width: 100%;
   max-width: 75rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: var(--space-sm) var(--space-lg);
-
   border-radius: var(--radius-xl);
   border: 1px solid rgba(255,255,255,0.12);
-
   background: linear-gradient(
     145deg,
     rgba(255,255,255,0.08),
     rgba(255,255,255,0.02)
   );
-
   backdrop-filter: blur(18px);
-
   box-shadow:
     0 1rem 3rem rgba(0,0,0,0.4),
     inset 0 1px 0 rgba(255,255,255,0.1);
@@ -46,14 +37,73 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-decoration: none;
+  color: var(--text-primary);
 }
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.nav__toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Three lines */
+
+.nav__hamburger,
+.nav__hamburger::before,
+.nav__hamburger::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 0.12rem;
+  background: var(--text-primary);
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.nav__hamburger::before {
+  position: absolute;
+  top: -0.45rem;
+}
+
+.nav__hamburger::after {
+  position: absolute;
+  top: 0.45rem;
+}
+
+/* Morph to X */
+
+.nav.is-open .nav__hamburger {
+  background: transparent;
+}
+
+.nav.is-open .nav__hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav.is-open .nav__hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* =========================
+   NAV MENU
+========================= */
 
 .nav__menu {
   list-style: none;
-  display: flex;
-  gap: var(--space-lg);
   margin: 0;
   padding: 0;
+  display: none;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
 .nav__menu a {
@@ -64,6 +114,26 @@
 
 .nav__menu a:hover {
   color: var(--text-primary);
+}
+
+/* Mobile open state */
+
+.nav.is-open .nav__menu {
+  display: flex;
+}
+
+/* Desktop layout */
+
+@media (min-width: 48rem) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__menu {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-lg);
+  }
 }
 
 
@@ -103,15 +173,12 @@
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-md);
   text-decoration: none;
-
   background: linear-gradient(
     to right,
     var(--brand-accent),
     #60a5fa
   );
-
   color: white;
-
   transition:
     transform 400ms cubic-bezier(0.22,1,0.36,1),
     box-shadow 400ms cubic-bezier(0.22,1,0.36,1);
@@ -124,7 +191,7 @@
 
 
 /* =========================
-   ABOUT BENTO GRID (DAY 3)
+   ABOUT (DAY 3)
 ========================= */
 
 .about {
@@ -134,21 +201,15 @@
 .about__grid {
   display: grid;
   gap: var(--space-xl);
-}
-
-/* Mobile */
-.about__grid {
   grid-template-columns: 1fr;
 }
 
-/* Tablet */
 @media (min-width: 48rem) {
   .about__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Desktop */
 @media (min-width: 64rem) {
   .about__grid {
     grid-template-columns: repeat(4, 1fr);
@@ -167,10 +228,8 @@
 .tile {
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
-
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
-
   transition:
     transform 400ms cubic-bezier(0.22,1,0.36,1),
     box-shadow 400ms cubic-bezier(0.22,1,0.36,1);
@@ -193,7 +252,7 @@
 
 
 /* =========================
-   PROJECTS SECTION (DAY 4)
+   PROJECTS (DAY 4)
 ========================= */
 
 .projects {
@@ -215,18 +274,15 @@
   background: rgba(255,255,255,0.05);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255,255,255,0.08);
-
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
   transition:
     transform 500ms cubic-bezier(0.22,1,0.36,1),
     box-shadow 500ms cubic-bezier(0.22,1,0.36,1);
 }
 
-.project-card:hover,
-.project-card:focus-within {
+.project-card:hover {
   transform: translateY(-0.7rem);
   box-shadow: 0 2rem 4rem rgba(0,0,0,0.6);
 }
@@ -274,10 +330,8 @@
   text-align: center;
   border-radius: var(--radius-md);
   text-decoration: none;
-
   background: var(--brand-accent);
   color: white;
-
   transition:
     transform 300ms cubic-bezier(0.22,1,0.36,1),
     box-shadow 300ms cubic-bezier(0.22,1,0.36,1);
@@ -287,8 +341,10 @@
   transform: translateY(-0.2rem);
   box-shadow: 0 0 1.5rem rgba(59,130,246,0.6);
 }
+
+
 /* =========================
-   EXPERIENCE SECTION (DAY 5)
+   EXPERIENCE (DAY 5)
 ========================= */
 
 .experience {
@@ -301,17 +357,12 @@
   text-align: center;
 }
 
-
-/* Timeline Structure */
-
 .timeline {
   list-style: none;
   margin: 0;
   padding: 0;
   position: relative;
 }
-
-/* Vertical Line */
 
 .timeline::before {
   content: "";
@@ -323,15 +374,11 @@
   background: rgba(255,255,255,0.1);
 }
 
-/* Item */
-
 .timeline__item {
   position: relative;
   padding-left: 3.5rem;
   margin-bottom: var(--space-2xl);
 }
-
-/* Marker */
 
 .timeline__marker {
   position: absolute;
@@ -344,13 +391,9 @@
   box-shadow: 0 0 1rem rgba(59,130,246,0.6);
 }
 
-/* Content */
-
 .timeline__content {
   max-width: 65ch;
 }
-
-/* Level 1 – Role */
 
 .timeline__role {
   font-size: 1.25rem;
@@ -358,14 +401,10 @@
   margin-bottom: var(--space-xs);
 }
 
-/* Level 2 – Company */
-
 .timeline__company span {
   color: var(--brand-accent);
   font-weight: 500;
 }
-
-/* Level 3 – Dates */
 
 .timeline__meta {
   color: var(--text-secondary);
@@ -374,22 +413,10 @@
   margin-bottom: var(--space-md);
 }
 
-/* Bullet Points */
-
 .timeline__points {
   margin: 0;
   padding-left: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
-}
-
-.timeline__points li {
-  line-height: 1.6;
-}
-/* Hide hamburger on desktop */
-@media (min-width: 48rem) {
-  .nav__toggle {
-    display: none !important;
-  }
 }
