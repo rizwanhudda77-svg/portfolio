@@ -453,3 +453,130 @@
   background: rgba(59,130,246,0.15);
   color: var(--brand-accent);
 }
+/* =================================================
+   CONTACT SECTION - FLOATING LABEL
+================================================= */
+
+.contact {
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.contact__title {
+  font-size: var(--fs-section);
+  margin-bottom: var(--space-xl);
+}
+
+.contact__form {
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Form Group */
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 4.5rem; /* prevents jump */
+}
+
+/* Input */
+
+.form-group input,
+.form-group textarea {
+  padding: 1.2rem 1rem 0.6rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Floating Label */
+
+.form-group label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+/* Move label when focused or filled */
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+  transform: translateY(-0.8rem) scale(0.85);
+  opacity: 0.7;
+}
+
+/* Error message */
+
+.form-error {
+  font-size: 0.8rem;
+  color: red;
+  margin-top: 0.3rem;
+  visibility: hidden;
+  min-height: 1rem; /* reserve space */
+}
+
+/* Invalid state */
+
+.form-group.is-invalid input,
+.form-group.is-invalid textarea {
+  border-color: red;
+}
+
+.form-group.is-invalid .form-error {
+  visibility: visible;
+}
+
+/* Submit */
+
+.contact__submit {
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--brand-accent);
+  color: white;
+  cursor: pointer;
+}
+
+
+/* =================================================
+   FOOTER
+================================================= */
+
+.footer {
+  margin-top: auto;
+  padding: var(--space-xl) var(--space-md);
+  background: rgba(255,255,255,0.05);
+}
+
+.footer__grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 48rem) {
+  .footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer h4 {
+  margin-bottom: var(--space-sm);
+}
+
+.footer a {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
